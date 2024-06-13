@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>{{ title }}</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+
+    <style>
+        pre {
+            background-color: #f8f8f8;
+            padding: 10px;
+            border: 1px solid #ccc;
+            white-space: pre-wrap; /* Allow wrapping within pre */
+        }
+        h2 {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const contentElement = document.getElementById('content');
+            const rawContent = contentElement.textContent.trim();
+            const words = rawContent.split(' ');
+            contentElement.textContent = ''; // Clear initial content
+
+            let index = 0;
+            function displayNextWord() {
+                if (index < words.length) {
+                    contentElement.textContent += words[index] + ' ';
+                    index++;
+                    setTimeout(displayNextWord, 25); // Adjust the delay as needed
+                } else {
+                    // After streaming is finished, execute the replacement code
+                    let finalContent = contentElement.textContent.trim();
+                    
+                    // Replace <u> tags with <h2> tags
+                    finalContent = finalContent.replace(/<u>/g, '<h2>').replace(/<\/u>/g, '</h2>').replace(/##\s+/g, '<h2>').replace(/###\s+/g, '<h2>').replace(/\n/g, '</h2>');
+
+                    
+                    contentElement.innerHTML = finalContent;
+
+                    
+                }
+            }
+
+            displayNextWord(); // Start the word-by-word display
+
+        });
+    </script>
+</head>
+<body>
+    <main id="output-main">
+
+        <section class="generator pq-bg-dark pq-bg-img-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="pq-section-title pq-style-1 text-center">
+                            <h5 class="pq-section-main-title">Market Research for your idea.</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <form method="post" action="/">
+                            <div class="pq-image-generator">
+                                
+                                    <div id="content" type="text" class="form-control" placeholder="Describe what you want" id="prompt" name="prompt">
+                                    {{content}}
+                                    </div>
+                
+                                <div class="pq-generated-img"></div>
+                                
+                            </div>
+                        </form>
+
+                        <button id="generate-pdf">Generate PDF</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            document.getElementById('generate-pdf').addEventListener('click', function() {
+                // Create a new jsPDF instance
+                window.print();
+            });
+        </script>
+
+
+     
+    </main>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generate Python Code</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="video-background">
+    <video autoplay loop muted id="background-video">
+        <source src="{{ url_for('static', filename='img/video.mp4') }}" type="video/webm" class="background-video">
+        Your browser does not support the video tag.
+    </video>
+</div>
+<div class="overlay"></div>
+  <main>
+    <div class="container">
+  <h1>Validate Your Idea.💡</h1>
+  <form action="/" method="post">
+    <label for="prompt">Tell our A.I your next big thing and let us perform the market research.</label>
+    <br>
+    <textarea id="prompt" name="prompt" rows="5" cols="50" placeholder="Enter a description of the desired Python code"></textarea>
+    <br>
+    <button type="submit">Generate Code</button>
+  </form>
+</div>
+</main>
+</body>
+</html>
