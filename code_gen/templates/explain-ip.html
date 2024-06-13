@@ -1,0 +1,51 @@
+{% extends "base.html" %} {% block title %}Explaination Page{% endblock %} {% block
+content %}
+<style>
+    .grad {
+        background: linear-gradient(43deg,
+                    #4158d0 0%,
+                    #c850c0 46%,
+                    #f2893e 100%);
+            
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+    }
+
+    
+</style>
+<div class="p-2 p-md-4 mb-3  rounded grad container">
+    <div class="col-md-6 px-0">
+        <h1 class="display-12"><b>{%block header %} {{ heading }}{%endblock%}</b></h1>
+    </div>
+</div>
+<div class="container">
+
+    <form method="post" class="container">
+        <div class="form-group">
+            <div class="row justify-content-start">
+                <div class="col-4">
+                    <h5>Select your programming language:-</h5>
+                </div>
+                <div class="col-2">
+                    <select class="form-select form-select-sm " id="exampleFormControlSelect1" class="col" name="lang">
+                        <option value="Python">Python</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="C++">C++</option>
+                        <option value="Java">Java</option>
+                        <option value="Ruby">Ruby</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <textarea class="form-control bg-dark text-white" id="code" name="code" rows="6" placeholder="for i in range(0,100):
+                if(i%2==0):
+                      print(i)"></textarea>
+        </div><br>
+        <button type="submit" class="btn btn-outline-light">Submit</button>
+    </form>
+
+</div>
+<div class="col-sm-2"></div>
+
+</div>
+{% endblock %}

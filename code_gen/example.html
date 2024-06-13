@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 500px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .form-group input:focus {
+      border: 1px solid #000;
+    }
+
+    .form-group .error {
+      color: red;
+      font-size: 12px;
+    }
+
+    .success {
+      color: green;
+      font-size: 16px;
+    }
+
+    .error {
+      color: red;
+      font-size: 16px;
+    }
+    
+  </style>
+</head>
+<body>
+
+    <div class="example-div"></div>
+  <div class="container">
+    <h1>Example</h1>
+    <form action="/action_page.php">
+      <div class="form-group">
+        <label for="first_name">First Name *</label>
+        <input type="text" id="first_name" name="first_name" placeholder="Jane">
+      </div>
+      <div class="form-group">
+        <label for="last_name">Last Name *</label>
+        <input type="text" id="last_name" name="last_name" placeholder="Doe">
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" placeholder="janedoe@example.com">        
+        <span class="error">Please enter a valid email address.</span>
+      </div>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block title %}Interview Page{% endblock %} {% block
+    content %}
+    <style>
+      .grad {
+        background-color: #4158d0;
+        background-image: linear-gradient(
+          43deg,
+          #4158d0 0%,
+          #c850c0 46%,
+          #f2893e 100%
+        );
+      
+
+      }
+
+
+      
+    </style>
+    <div class="p-2 p-md-4 mb-4 text-white rounded grad container">
+      <div class="col-md-6 px-0">
+        <h1 class="display-12"><b>{%block header %} {{ heading }}{%endblock%} </b></h1>
+      </div>
+    </div>
+    <div class="container">
+      
+        <form method="post">
+            <div class="form-group">
+                <h5>paste your code here!</h5>
+                <textarea class="form-control bg-dark text-white" id="code" name="code" rows="6" placeholder="example:
+                #Table albums, columns = [AlbumId, Title, ArtistId]
+                # Table artists, columns = [ArtistId, Name]
+                
+                # Create a query for all albums by Adele"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        </div>
+    <div class="col-sm-2"></div>
+      
+    </div>
+    {% endblock %}
+    
